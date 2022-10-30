@@ -4,7 +4,7 @@ rm(list = ls())
 Ztest <- function(data, alternative = c("less", "alternative", "two.sided")) {
   if(is.matrix(data)) {
     if(nrow(data) < 2 || ncol(data) != nrow(data)) {
-      stop(" 'data' has to be a 2x2 matrix, and the number of rows have to match with the number of columns")
+      stop(" 'data' has to be a 2x2 matrix, and the number of rows have to match the number of columns")
     } else if (nrow(data) == 3 && ncol(data) == nrow) {
       stop("'data' has to be a 2x2 matrix, in the case of 3x3 matrix use the McNemar-Bowker exact test")
     } else if (any(data < 0) || anyNA(data)) {
@@ -55,7 +55,7 @@ binom.test(dataset[1,2], sum(dataset[1,2], dataset[2,1]), p = 0.5)
 Ztest(dataset, alternative = "two.sided")
 ## extract the statistical value
 stats <- Ztest(dataset, alternative ="greater")$statistic; print(stats)
-## extract the p-value when 
+## extract the p-value 
 p <- Ztest(dataset, alternative = "greater")$p.value
 2*p
 test <- Ztest(dataset, alternative = "greater"); print(test)
