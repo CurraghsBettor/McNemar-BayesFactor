@@ -1,4 +1,4 @@
-rm(list=ls())
+rm(list=ls()) ## clear workspace
 
 set.seed(12345)
 
@@ -77,7 +77,8 @@ BFMNdirichlet <- function(data, a12, a21, hypothesis = c("null", "alternative"))
 dataset <- matrix(c(88, 22, 37, 53),
                   nrow = 2, byrow = T); print(dataset)
 
-a <- BFMcNemar(dataset, "alternative")$BF10; a ## att
+a <- BFMcNemar(dataset, "alternative")$BF10
+print(a) 
 
 ## example from Kateri et al. (2001)
 ex1 <- matrix(c(2, 3, 13, 2),
